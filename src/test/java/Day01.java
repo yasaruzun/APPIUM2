@@ -10,7 +10,7 @@ public class Day01 {
 
 
     @Test
-    public void test01() throws MalformedURLException {
+    public void test01() throws MalformedURLException, InterruptedException {
 
 
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
@@ -24,7 +24,15 @@ public class Day01 {
         AndroidDriver<AndroidElement> driver= new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
 
 
+        driver.findElementById("com.google.android.calculator:id/digit_9").click();
 
+        //inspector da locate yaparız. buraya alır testlerı run ederiz.
+        Thread.sleep(2000);
+
+        driver.findElementById("com.google.android.calculator:id/op_mul").click();
+        Thread.sleep(2000);
+
+        driver.findElementById("com.google.android.calculator:id/digit_5").click();
 
     }
 
